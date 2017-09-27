@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIF", "SIF\SIF.csproj", "{8635E124-DFE2-40CF-A588-D8C83BF0B1A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encoder", "Encoder\Encoder.csproj", "{D046C7F2-5E51-455C-A8B9-298904026C01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8635E124-DFE2-40CF-A588-D8C83BF0B1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8635E124-DFE2-40CF-A588-D8C83BF0B1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8635E124-DFE2-40CF-A588-D8C83BF0B1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8635E124-DFE2-40CF-A588-D8C83BF0B1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D046C7F2-5E51-455C-A8B9-298904026C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D046C7F2-5E51-455C-A8B9-298904026C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D046C7F2-5E51-455C-A8B9-298904026C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D046C7F2-5E51-455C-A8B9-298904026C01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
