@@ -8,6 +8,7 @@ Sydney Image Format is a small, simple, work in progress image format.
 
 All numbers are stored in hex, and are shorts (2 bytes) unless stated otherwise.
 
+---
 ### Header
 
 The header of any SIF file should always be as follows. It should always be 8 bytes long.
@@ -22,6 +23,7 @@ Which is hex for
 SIM1.0  
 ```
 
+---
 ### Color Table
 
 This should have a header as follows, and should be 8 bytes long.
@@ -38,6 +40,8 @@ COLOR1949
 
 The length of the color table in entries (not bytes) should be appended to the text `COLOR`.
 
+---
+
 A color entry looks like this, after the header:
 
 ```
@@ -50,6 +54,7 @@ It trasnlates to
 [1 BYTE RED][1 BYTE GREEN][1 BYTE BLUE][1 BYTE ALPHA]
 ```
 
+---
 ### Pixel Data
 
 Now each pixel is written.
