@@ -38,7 +38,7 @@ Which is hex for
 COLOR1949
 ```
 
-The length of the color table in entries (not bytes) should be appended to the text `COLOR`.
+The length of the color table in entries (not bytes) should be appended to the text `COLOR`. `1949` is a generic number and you're length number should be used instead.
 
 ---
 
