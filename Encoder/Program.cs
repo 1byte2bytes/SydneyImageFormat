@@ -26,14 +26,14 @@ namespace Encoder
             }
             
             Bitmap inimage = new Bitmap(args[0]);
-            SIF.Image outimage = new SIF.Image(256, (short)inimage.Size.Width, (short)inimage.Size.Height);
+            SIF.Image outimage = new SIF.Image(255, (byte)inimage.Size.Width, (byte)inimage.Size.Height);
             
             int imheight = inimage.Size.Height;
             int imwidth = inimage.Size.Width;
 
             // Encode the image
-            byte colorindex = 0;
-            byte colindex = 0;
+            byte colorindex = 1;
+            byte colindex = 1;
             bool newcolor;
             for (byte x = 0; x < imwidth; x++)
             {

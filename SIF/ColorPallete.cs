@@ -9,7 +9,7 @@ namespace SIF
         public ColorPallete(int size)
         {
             colors = new Color[size];
-            Color empty = new Color(255, 255, 255, 0);
+            Color empty = new Color(0, 0, 0, 0);
             for (int i = 0; i < size; i++)
             {
                 colors[i] = empty;
@@ -31,7 +31,7 @@ namespace SIF
             throw new ColorNotFoundException("");
         }
         
-        public static void addColor(ColorPallete pallete, Color col, int index)
+        public static void addColor(ColorPallete pallete, Color col, byte index)
         {
             pallete.colors[index] = col;
         }
