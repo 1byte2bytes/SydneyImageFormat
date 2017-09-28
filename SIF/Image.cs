@@ -6,7 +6,7 @@
         public ColorPallete pallete;
         public Pixel[,] pixels;
 
-        public Image(int colors, short x, short y)
+        public Image(byte colors, byte x, byte y)
         {
             pallete = new ColorPallete(colors);
             pixels = new Pixel[x,y];
