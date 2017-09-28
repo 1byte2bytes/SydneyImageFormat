@@ -14,13 +14,13 @@ All numbers are stored in hex, and 1 byte long unless stated otherwise.
 The header of any SIF file should always be as follows. It should always be 8 bytes long.
 
 ```
-53 49 4D 31 2E 31 00 00
+53 49 46 32 2E 30 00 00
 ```
 
 Which is hex for
 
 ```
-SIM1.1  
+SIF2.0  
 ```
 
 ---
