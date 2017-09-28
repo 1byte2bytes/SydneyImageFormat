@@ -35,6 +35,9 @@ F9 80 71 00
 The first byte is the amount of color entries in our table. The second byte is the width of the image in pixels. The third byte is the height of the image in pixels. The fourth byte remains empty.
 
 ---
+### Color Table
+
+The first entry in the color table should always be `00 00 00 00`
 
 A color entry looks like this, after the header:
 
