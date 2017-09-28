@@ -24,7 +24,7 @@ SIM1.1
 ```
 
 ---
-### Size Table
+### Size Header
 
 This should have a header like below, and should be 8 bytes long.
 
