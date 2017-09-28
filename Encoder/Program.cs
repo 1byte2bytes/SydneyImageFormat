@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Runtime.InteropServices;
 using SIF;
@@ -9,7 +10,7 @@ using Color = System.Drawing.Color;
 namespace Encoder
 {
     internal class Program
-    {
+    {   
         public static void Main(string[] args)
         {
             if (args.Length != 2)
@@ -25,26 +26,27 @@ namespace Encoder
             }
             
             Bitmap inimage = new Bitmap(args[0]);
-            SIF.Image outimage = new SIF.Image(8191, (short)inimage.Size.Height, (short)inimage.Size.Width);
+            SIF.Image outimage = new SIF.Image(256, (short)inimage.Size.Width, (short)inimage.Size.Height);
             
             int imheight = inimage.Size.Height;
             int imwidth = inimage.Size.Width;
 
             // Encode the image
-            short colorindex = 0;
+            byte colorindex = 0;
+            byte colindex = 0;
             bool newcolor;
-            for (short x = 0; x < imheight; x++)
+            for (byte x = 0; x < imwidth; x++)
             {
-                for (short y = 0; y < imwidth; y++)
+                for (byte y = 0; y < imheight; y++)
                 {
                     newcolor = false;
-                    Color incolor = inimage.GetPixel(y, x);
+                    Color incolor = inimage.GetPixel(x, y);
                     SIF.Color outcolor = SysColorToSIFColor(incolor);
-
-                    short colindex = SIF.ColorPallete.isColorInPallete(outimage.pallete, outcolor);
                     
-                    if (colindex == -1)
+                    try
                     {
+                        colindex = SIF.ColorPallete.isColorInPallete(outimage.pallete, outcolor);
+                    } catch {
                         SIF.ColorPallete.addColor(outimage.pallete, outcolor, colorindex);
                         colorindex++;
                         newcolor = true;
@@ -63,25 +65,27 @@ namespace Encoder
             using (BinaryWriter bw = new BinaryWriter(fs))
             {
                 //bw.Write(0x53494D312E30); // SIM1.0
-                bw.Write(0x302E314D4953); // SIM1.0
-                
-                // Color
-                bw.Write((byte)0x43);
-                bw.Write((byte)0x4F);
-                bw.Write((byte)0x4C);
-                bw.Write((byte)0x4F);
-                bw.Write((byte)0x52);
-                bw.Write(colorindex);
-                bw.Write((byte)0x0);
+                bw.Write(0x312E314D4953); // SIM1.0
+                bw.Write(colorindex); // color size
+                bw.Write((byte)inimage.Size.Height);
+                bw.Write((byte)inimage.Size.Width);
+                bw.Write((byte)0);
 
                 foreach (SIF.Color color in outimage.pallete.colors)
                 {
-                    bw.Write(color.red + color.green + color.green + color.alpha);
+                    //bw.Write(color.red + color.green + color.green + color.alpha);
+                    bw.Write(color.red);
+                    bw.Write(color.green);
+                    bw.Write(color.blue);
+                    bw.Write(color.alpha);
                 }
 
-                foreach (SIF.Pixel pixel in outimage.pixels)
+                for (int x = 0; x < inimage.Size.Width; x++)
                 {
-                    bw.Write(pixel.x + pixel.y + pixel.colorindex);
+                    for (int y = 0; y < inimage.Size.Height; y++)
+                    {
+                        bw.Write(outimage.pixels[x,y].colorindex);
+                    }
                 }
             }
             

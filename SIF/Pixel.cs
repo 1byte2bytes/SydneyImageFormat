@@ -2,11 +2,11 @@
 {
     public class Pixel
     {
-        public short x;
-        public short y;
-        public short colorindex;
+        public byte x;
+        public byte y;
+        public byte colorindex;
 
-        public Pixel(short inx, short iny, short incolorindex)
+        public Pixel(byte inx, byte iny, byte incolorindex)
         {
             x = inx;
             y = iny;
