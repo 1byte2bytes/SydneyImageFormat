@@ -45,7 +45,7 @@ A color entry looks like this, after the header:
 DF 3B 26 FE
 ```
 
-It trasnlates to
+It translates to
 
 ```
 [1 BYTE RED][1 BYTE GREEN][1 BYTE BLUE][1 BYTE ALPHA]
